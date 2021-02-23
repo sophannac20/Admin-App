@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChineseKoreaThai</title>
+    
+    <!-- style-impletment -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../style/main-style.css" type="text/css">
+    <!-- style-impletment -->
+
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="container">
+            <div class="form-row-adjust">
+                <div class="form-group">
+                    <div class="form-group col-sm-12 header">
+                        <a href="https://orbromjet.imgbb.com/" target="_blank">Img Upload</a>
+                        <a href="https://console.firebase.google.com/u/0/project/thaikoreachinesemovie/firestore/data~2FThaiDrama" target="_blank">Admin ChineseThai</a>
+                        <a href="" target="_blank" >Notification</a>
+                    </div>
+                </div>
+            </div>
+                <div class="form-row-adjust">
+                    <div class="form-row">
+                        <div class="form-group col-sm-2 col-xs1-2 col-xs1-4 col-xs1-2" style="margin: 0;" >
+                            <label for="txt_number">No</label>
+                            <input type="number" class="form-control form-control-sm" id="txt_number" placeholder="No" name="txt_number">
+                        </div>
+                        <div class="form-group col-sm-4  col-xs1-4"style="margin: 0;" >
+                            <label for="combo_movieType">Movie-Type</label>
+                            <select class="form-control form-control-sm" id="combo_movieType" name="combo_movieType">
+                                <option value="ThaiDrama">Thai Drama</option>
+                                <option value="KoreaDrama">Korea Drama</option>
+                                <option value="ChineseDrama">Chinese Drama</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-sm-6 col-xs1-4 col-xs1-6"style="margin: 0;" >
+                            <label for="txt_title">Title</label>
+                            <input type="text" class="form-control form-control-sm" id="txt_title" placeholder="title" name="txt_title">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row-adjust">
+                    <div class="form-row">
+                        <div class="form-group col-sm-4 col-xs1-4" style="margin: 0;">
+                          <label for="combo_embed">Embed</label>
+                          <select class="form-control form-control-sm" id="combo_embed" name="combo_embed" disabled>
+                            <option value="https:///ok.ru/videoembed/">OK.RU</option>
+                            <option value="https://www.youtube.com/embed/">Youtube</option>
+                            <option value="https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/watch/?v=">Facebook</option>
+                          </select>
+                        </div>
+                        <div class="form-group col-sm-8 col-xs1-4 col-xs1-8" style="margin: 0;">
+                          <label for="txt_movieImg">Movie-Image</label>
+                          <input type="text" class="form-control form-control-sm " id="txt_movieImg" placeholder="Movie Image" name="txt_movieImg">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row-adjust">
+                    <div class="form-row">
+                        <div class="form-group col-sm-12 col-xs1-12" style="margin: 0;">
+                          <label for="txt_movieID">ID-Movie</label><br>
+                          <textarea name="txt_movieID" id="txt_movieID" cols="70" rows="5" style="font-size: 12px;"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row-adjust">
+                    <div class="form-row">
+                    </div>
+                    <div class="col-50">
+                        <div class="row">
+                            <div class="form-group col-sm-6 col-xs1-6" style="margin-left: 10px; margin-top: 0; margin-bottom: 0; margin-right: 0; width: 10px;">
+                                <div class="form-row">
+                                    <label for="txt_status">Status</label><br>
+                                    <input type="text" class="form-control form-control-sm" id="txt_status" placeholder="Status" hidden>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputEmail4">.</label><br>
+                                <button type="button" class="btn btn-primary btn-sm btn-style" onclick="AddedData()">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-50">
+                        <div class="row">
+                            <div class="form-group col-sm-6 col-xs1-6" style="margin-left: 10px; margin-top: 0; margin-bottom: 0; margin-right: 0; width: 10px;">
+                                <div class="form-row">
+                                    <label for="inputEmail4">GetMovie</label><br>
+                                    <select class="form-control form-control-sm" id="txt_col">
+                                        <option value="ThaiDrama" selected>Thai Drama</option>
+                                        <option value="KoreaDrama">Korea Drama</option>
+                                        <option value="ChineseDrama">Chinese Drama</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputEmail4">.</label><br>
+                                <button type="button" class="btn btn-primary btn-sm btn-style" onclick="ReadData()">Show Data</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <!-- Table Container -->
+            <div class="form-row-adjust table-container" id="table-container">
+                <!-- <div class="card-item">
+                    <div class="form-row">
+                        <div class="col-xs2-1" style="color: red;">
+                            <h6> </h6>
+                            <h6>NO</h6>
+                            <h6>|</h6>
+                            <h6>Title</h6>
+                            <h6>|</h6>
+                            <h6>EPS</h6>
+                            <h6>|</h6>
+                            <h6>Status</h6>
+                        </div>
+                        <div class="col-xs2-2">
+                            <button type="button" class="btn btn-primary btn-sm">Edit</button>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+            <div>
+            </div>
+        </div>
+    </div>
+
+    
+            <!-- The core Firebase JS SDK is always required and must be listed first -->
+            <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/8.2.8/firebase-app.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/8.2.8/firebase-firestore.js"></script>
+
+            <!-- TODO: Add SDKs for Firebase products that you want to use
+            https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <script>
+                // Your web app's Firebase configuration
+                var firebaseConfig = {
+                    apiKey: "AIzaSyBDLsKKtOms70bl6bWtYnHPHtdVemzmeUw",
+                    authDomain: "thaikoreachinesemovie.firebaseapp.com",
+                    databaseURL: "https://thaikoreachinesemovie.firebaseio.com",
+                    projectId: "thaikoreachinesemovie",
+                    storageBucket: "thaikoreachinesemovie.appspot.com",
+                    messagingSenderId: "997221784977",
+                    appId: "1:997221784977:web:4f9349f35efc521aa44e30"
+                };
+            
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
+
+            var db = firebase.firestore();
+            ReadData();
+            function ReadData(){
+                    document.getElementById("table-container").innerHTML = " ";
+                    var col = document.getElementById("txt_col").value
+
+                    db.collection(col).orderBy("No", "desc").get().then((querySnapshot) => {
+                    querySnapshot.forEach((doc) => {
+                    // doc.data() is never undefined for query doc snapshots
+                    // console.log(doc.id, " => ", doc.data());
+                    // var id =  doc.get("id");
+                    // var id_split = id.split(",");
+                    var end = doc.get("End");
+                    
+                    // console.log(id);
+                    //var temp;
+                    // for(var i=0; i<id_split.length+1; i++){
+                    //     temp = i;
+                    // }
+                    // console.log(temp);
+
+                            document.getElementById("table-container").innerHTML += 
+                            `
+                            <div class="card-item">
+                            <div class="form-row">
+                                <div class="col-xs2-1" style="color: red;">
+                                    <h6> </h6>
+                                    <h6>${doc.get("No")}</h6>
+                                    <h6>|</h6>
+                                    <h6>${doc.get("title")}</h6>
+                        <!--        <h6>|</h6>
+                                    <h6>${"temp"}</h6>
+                                    <h6>|</h6>
+                                    <h6>${doc.get("End")}</h6> -->
+                                </div>
+                                <div class="col-xs2-2">
+                                    <button type="button" class="btn btn-primary btn-sm" onclick="edit('${doc.get("No")}','${doc.get("Collection")}','${doc.get("title")}','${doc.get("embed")}','${doc.get("img")}','${doc.get("link")}','${doc.get("End")}')">Edit</button>
+                                </div>
+                            </div>
+                            `
+                        
+                    });
+                });
+                
+                //${doc.get("No")},${doc.get("Collection")},${doc.get("title")},${doc.get("embed")},${doc.get("img")},${doc.get("id")},${doc.get("End")}
+            }
+            var no_as_number;
+
+            function clear(){
+                document.getElementById("txt_title").value = "";
+                document.getElementById("txt_movieImg").value = "";
+                document.getElementById("txt_movieID").value = "";
+                document.getElementById("txt_status").value = "";
+                document.getElementById("txt_number").value = no_as_number + 1;
+            }
+
+            function AddedData(){
+                var no = document.getElementById("txt_number").value;
+                no_as_number = parseInt(no);
+                var movieType = document.getElementById("combo_movieType").value;
+                var title = document.getElementById("txt_title").value;
+                var embed = document.getElementById("combo_embed").value;
+                var img = document.getElementById("txt_movieImg").value;
+                var id = document.getElementById("txt_movieID").value;
+                var end = document.getElementById("txt_status").value;
+                
+                if(no!= "" && title != "" && img != "" && id != ""){
+                        db.collection(movieType).doc(title).set({
+                        Collection: movieType,
+                        // End: end,
+                        No: no_as_number,
+                        embed: embed,
+                        link: id,
+                        img: img,
+                        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+                        title: title
+                        // view: 1
+                    })
+                    .then(() => {
+                        console.log("Document successfully written!");
+                        clear();
+                        ReadData();
+                    })
+                    .catch((error) => {
+                        console.error("Error writing document: ", error);
+                    });
+                }else{
+                    alert("Please Fill");
+                }
+
+                
+            };
+
+            function edit(no,col,title,emebed,img,id,end){
+                document.getElementById("txt_number").value = no;
+                document.getElementById("combo_movieType").value = col;
+                document.getElementById("txt_title").value = title;
+                document.getElementById("combo_embed").value = emebed;
+                document.getElementById("txt_movieImg").value = img;
+                document.getElementById("txt_movieID").value = id;
+                document.getElementById("txt_status").value = end;
+                
+            };
+
+
+    </script>
+</body>
+</html>
